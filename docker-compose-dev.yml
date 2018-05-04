@@ -1,0 +1,10 @@
+version: '3'
+services:
+  hrdb:
+    build: .
+    command: npm run start
+    ports:
+     - "9000:9000"
+     - "35729:35729"
+    volumes:
+     - .:/app/
