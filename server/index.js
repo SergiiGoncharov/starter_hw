@@ -9,15 +9,15 @@ const env = process.env.NODE_ENV || 'production';
 const port = process.env.PORT || 3000;
 const app = express();
 
+if (env === 'development') {
+    app.use(require('connect-livereload')({}));
+}
+
 app.get('/', (req, res) => {
     res.sendFile('dist/client/index.html', { root: app_root });
 });
 
 app.get('/api/hello', hello_api);
-
-if (env ==='development') {
-    app.use(require('connect-livereload')({}));
-}
 
 app.use(express.static('dist/client'));
 
