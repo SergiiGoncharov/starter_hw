@@ -6,7 +6,7 @@ const hello_api = require('./hello-api.js');
 
 const app_root = path.normalize(__dirname + '/..');
 const env = process.env.NODE_ENV || 'production';
-
+const port = process.env.PORT || 3000;
 const app = express();
 
 app.get('/', (req, res) => {
@@ -25,4 +25,4 @@ app.use('/*', (req, res) => {
     res.sendStatus(404);
 });
 
-app.listen(3000, () => console.log('Express server is listening on port 3000!'));
+app.listen(port, () => console.log(`Express server is listening on port ${port}!`));
